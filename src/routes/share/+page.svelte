@@ -7,6 +7,7 @@
 
     import GameBoard from "$lib/components/GameBoard.svelte";
     import PlayerLeaderboard from "$lib/components/PlayerLeaderboard.svelte";
+    import GameSummaryText from "$lib/components/GameSummaryText.svelte";
 
     let shareData: ShareData;
 
@@ -32,6 +33,8 @@
 
         font-family: Minecraft;
         color: rgb(250, 250, 250);
+
+        font-size: 1.5vh;
     }
 
     .center {
@@ -84,6 +87,12 @@
     .player-leaderboard {
         width: 75%;
     }
+
+    .game-summary {
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0;
+    }
 </style>
 
 {#if shareData}
@@ -98,11 +107,17 @@
                     <GameBoard {shareData}/>
                 </div>
 
-                <h1>Player scores</h1>
+                <h1>Leaderboard</h1>
 
                 <div class="player-leaderboard">
                     <PlayerLeaderboard {shareData}/>
                 </div>
+
+                <h1>Game summary</h1>
+
+                <p class="game-summary">
+                    <GameSummaryText {shareData}/>
+                </p>
             </div>
         </div>
     </div>
