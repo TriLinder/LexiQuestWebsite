@@ -6,6 +6,7 @@
     import type { ShareData } from "$lib/share-string-parser";
 
     import GameBoard from "$lib/components/GameBoard.svelte";
+    import PlayerLeaderboard from "$lib/components/PlayerLeaderboard.svelte";
 
     let shareData: ShareData;
 
@@ -26,7 +27,11 @@
         background-color: rgb(42, 42, 42);
         background-image: url("/background.png");
         background-size: cover;
+        
         margin: 0;
+
+        font-family: Minecraft;
+        color: rgb(250, 250, 250);
     }
 
     .center {
@@ -46,11 +51,11 @@
 
         justify-content: center;
 
-        backdrop-filter: brightness(0.25);
+        backdrop-filter: brightness(0.25) blur(0.3em);
         border-radius: 0.3em;
     }
 
-    @media (max-aspect-ratio: 15/16) {
+    @media (max-aspect-ratio: 25/16) {
         .container {
             width: 95%;
         }
@@ -64,9 +69,9 @@
     }
 
     .header-logo {
-        margin-top: 13px;
-        width: 30vw;
-        height: 10vw;
+        margin-top: 1.5vh;
+        width: 65%;
+        height: auto;
         image-rendering: pixelated;
     }
 
@@ -74,7 +79,10 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        margin-top: 1vh;
+    }
+
+    .player-leaderboard {
+        width: 75%;
     }
 </style>
 
@@ -84,8 +92,16 @@
             <div class="content">
                 <img src={logo} alt="LexiQuest logo" class="header-logo">
 
+                <h1>{shareData.data.players.toSorted((a, b) => b.score - a.score)[0].username}'s game of LexiQuest</h1>
+
                 <div class="game-board">
                     <GameBoard {shareData}/>
+                </div>
+
+                <h1>Player scores</h1>
+
+                <div class="player-leaderboard">
+                    <PlayerLeaderboard {shareData}/>
                 </div>
             </div>
         </div>
