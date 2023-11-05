@@ -13,6 +13,10 @@
     let shareData: ShareData;
 
     if (browser) {
+        window.addEventListener("unhandledrejection", function(error) {
+            alert(error.reason);
+        });
+        
         const shareLink = document.location.hash.slice(1);
         shareData = parseShareString(shareLink);
     }
@@ -36,6 +40,24 @@
         color: rgb(250, 250, 250);
 
         font-size: 1.5vh;
+    }
+
+    .loading-screen {
+        position: absolute;
+        
+        left: 0;
+        top: 0;
+        
+        width: 100%;
+        height: 100%;
+
+        background-color: black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        font-size: 3vh;
     }
 
     .center {
@@ -131,5 +153,7 @@
         </div>
     </div>
 {:else}
-    <p>Loading..</p>
+    <div class="loading-screen">
+        <h1>LOADING..</h1>
+    </div>
 {/if}
