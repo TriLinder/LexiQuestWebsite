@@ -8,6 +8,7 @@
     import GameBoard from "$lib/components/GameBoard.svelte";
     import PlayerLeaderboard from "$lib/components/PlayerLeaderboard.svelte";
     import GameSummaryText from "$lib/components/GameSummaryText.svelte";
+    import FakePlayerMessages from "$lib/components/FakePlayerMessages.svelte";
 
     let shareData: ShareData;
 
@@ -118,6 +119,10 @@
                 <p class="game-summary">
                     <GameSummaryText {shareData}/>
                 </p>
+
+                <div class="fake-player-messages">
+                    <FakePlayerMessages {shareData}/>
+                </div>
             </div>
         </div>
     </div>

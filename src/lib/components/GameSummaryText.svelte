@@ -17,4 +17,4 @@
 </script>
 
 The game lasted {gameLengthString} with a total of {shareData.data.statistics.game.turns} turns. <br>
-{winningPlayer.username} won the game with {winningPlayer.score} points.
+{winningPlayer.username} won the game and gained {winningPlayer.score} points.
