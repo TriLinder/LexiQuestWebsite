@@ -16,7 +16,7 @@ type PlayerData = {
     }
 }
 
-type BoardTile = {
+export type BoardTile = {
     type: "empty" | "doubleLetterScore" | "tripleLetterScore" | "plusThreeScore" | "plusEightScore" | "centerTile" | "filled"
     letter?: string
 }

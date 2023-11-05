@@ -5,6 +5,8 @@
     import { parseShareString } from "$lib/share-string-parser";
     import type { ShareData } from "$lib/share-string-parser";
 
+    import GameBoard from "$lib/components/GameBoard.svelte";
+
     let shareData: ShareData;
 
     if (browser) {
@@ -14,6 +16,12 @@
 </script>
 
 <style>
+    @font-face {
+        font-family: 'Minecraft';
+        font-style: normal;
+        src: url("/fonts/Minecraft.otf");
+    }
+
     :global(body) {
         background-color: rgb(42, 42, 42);
         background-image: url("/background.png");
@@ -42,10 +50,17 @@
         border-radius: 0.3em;
     }
 
+    @media (max-aspect-ratio: 15/16) {
+        .container {
+            width: 95%;
+        }
+    }
+
     .content {
         display: flex;
         width: 100%;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .header-logo {
@@ -54,6 +69,13 @@
         height: 10vw;
         image-rendering: pixelated;
     }
+
+    .game-board {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1vh;
+    }
 </style>
 
 {#if shareData}
@@ -61,6 +83,10 @@
         <div class="container">
             <div class="content">
                 <img src={logo} alt="LexiQuest logo" class="header-logo">
+
+                <div class="game-board">
+                    <GameBoard {shareData}/>
+                </div>
             </div>
         </div>
     </div>

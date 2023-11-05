@@ -1,5 +1,6 @@
 import { parseVersion0ShareString } from "./version-0";
 import type { Version0ShareData } from "./version-0";
+export type { BoardTile } from "./version-0";
 
 export type ShareData = Version0ShareData;
 
