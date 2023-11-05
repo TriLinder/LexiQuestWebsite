@@ -32,6 +32,16 @@
         gap: 0.75vw;
     }
 
+    .player-head {
+        margin-right: 0.75vw;
+    }
+
+    @media (max-aspect-ratio: 25/16) {
+        .player-head {
+            display: none;
+        }
+    }
+
     .winner {
         background-color: rgba(0, 255, 0, 0.3)    
     }
@@ -43,8 +53,10 @@
             <div class="player-info">
                 <span>{index + 1}.</span>
                 
-                <PlayerHead {player}/>
-                
+                <div class="player-head">
+                    <PlayerHead {player}/>
+                </div>
+
                 <span>{player.username}</span>
                 
                 {#if index == 0}

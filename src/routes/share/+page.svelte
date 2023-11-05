@@ -79,6 +79,10 @@
         image-rendering: pixelated;
     }
 
+    h1 {
+        text-align: center;
+    }
+
     .game-board {
         display: flex;
         justify-content: center;
