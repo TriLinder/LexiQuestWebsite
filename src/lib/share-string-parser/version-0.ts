@@ -2,7 +2,7 @@
 const boardSize = 27; // The length of one row (the board is a square)
 
 // Types
-type PlayerData = {
+export type PlayerData = {
     timestamp: Date
     username: string
     uuid: string

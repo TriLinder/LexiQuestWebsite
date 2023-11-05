@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { ShareData } from "$lib/share-string-parser";
+    import PlayerHead from "./PlayerHead.svelte";
 
     export let shareData: ShareData;
     
@@ -25,6 +26,12 @@
         padding: 0.3vw;
     }
 
+    .player-info {
+        display: flex;
+        width: 75%;
+        gap: 0.75vw;
+    }
+
     .winner {
         background-color: rgba(0, 255, 0, 0.3)    
     }
@@ -33,8 +40,12 @@
 <div class="leaderboard">
     {#each sortedPlayers as player, index}
         <div class="player" class:winner={index == 0}>
-            <div>
-                <span>{index + 1}. {player.username}</span>
+            <div class="player-info">
+                <span>{index + 1}.</span>
+                
+                <PlayerHead {player}/>
+                
+                <span>{player.username}</span>
                 
                 {#if index == 0}
                     <span>🏆</span>
