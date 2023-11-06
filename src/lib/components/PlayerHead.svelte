@@ -39,6 +39,7 @@
         display: inline;
         height: 100%;
         image-rendering: pixelated;
+        border-radius: 0.15em;
     }
 </style>
 
