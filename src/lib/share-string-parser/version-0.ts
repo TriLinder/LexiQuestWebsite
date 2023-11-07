@@ -108,7 +108,7 @@ export function parseVersion0ShareString(shareString: string): Version0ShareData
     const sessionId = statisticsItems[1];
     const gameId = statisticsItems[2];
     
-    const messageIndex = Number.parseInt(statisticsItems[11]);
+    const messageIndex = Number.parseInt(statisticsItems[12]);
     const winnerStageFakePlayersMessage = {
         firstMessage: ["Did you see that? They're amazing!", "I'm struggling to keep up!", "They're a LexiQuest champion in the making.",
                         "Their word choices are incredible!", "Their strategy was flawless.", "They are on fire!",
@@ -120,18 +120,18 @@ export function parseVersion0ShareString(shareString: string): Version0ShareData
     }
 
     const parsedStatistics = {
-        highestPlayerCount: Number.parseInt(statisticsItems[2]),
+        highestPlayerCount: Number.parseInt(statisticsItems[3]),
         lobby: {
-            gamesStarted: Number.parseInt(statisticsItems[3]),
-            timesClickedTutorial: Number.parseInt(statisticsItems[4]),
-            timesClickedTrailer: Number.parseInt(statisticsItems[5]),
-            timesClickedWebsite: Number.parseInt(statisticsItems[6]),
-            timesPlayedDisc: Number.parseInt(statisticsItems[7]),
-            timesStoppedDisc: Number.parseInt(statisticsItems[8])
+            gamesStarted: Number.parseInt(statisticsItems[4]),
+            timesClickedTutorial: Number.parseInt(statisticsItems[5]),
+            timesClickedTrailer: Number.parseInt(statisticsItems[6]),
+            timesClickedWebsite: Number.parseInt(statisticsItems[7]),
+            timesPlayedDisc: Number.parseInt(statisticsItems[8]),
+            timesStoppedDisc: Number.parseInt(statisticsItems[9])
         },
         game: {
-            lengthInMiliseconds: Number.parseInt(statisticsItems[9]) / 20 * 1000,
-            turns: Number.parseInt(statisticsItems[10])
+            lengthInMiliseconds: Number.parseInt(statisticsItems[10]) / 20 * 1000,
+            turns: Number.parseInt(statisticsItems[11])
         }
     }
 
