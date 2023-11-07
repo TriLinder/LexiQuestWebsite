@@ -26,6 +26,7 @@ export type Version0ShareData = {
     data: {
         instanceId: string
         sessionId: string
+        gameId: string
         winnerStageFakePlayersMessage: {
             firstMessage: string
             secondMessage: string 
@@ -105,6 +106,7 @@ export function parseVersion0ShareString(shareString: string): Version0ShareData
 
     const instanceId = statisticsItems[0];
     const sessionId = statisticsItems[1];
+    const gameId = statisticsItems[2];
     
     const messageIndex = Number.parseInt(statisticsItems[11]);
     const winnerStageFakePlayersMessage = {
@@ -224,6 +226,7 @@ export function parseVersion0ShareString(shareString: string): Version0ShareData
         data: {
             instanceId: instanceId,
             sessionId: sessionId,
+            gameId: gameId,
             winnerStageFakePlayersMessage: winnerStageFakePlayersMessage,
             configuration: parsedConfiguartion,
             statistics: parsedStatistics,

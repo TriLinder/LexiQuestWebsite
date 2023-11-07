@@ -18,8 +18,8 @@ export function prepareShareStringTelemetry(shareData: ShareData) {
             // Telemetry level 1 should include only basic
             // pseudo-anonymous statistics.
             
-            // Include the whole statistics section, the data version
-            // and player capes (to get to known the general player base)
+            // Include the game id, the whole statistics section,
+            // the data version and player capes (to get to known the general player base)
 
             let capes: string[] = [];
 
@@ -32,6 +32,7 @@ export function prepareShareStringTelemetry(shareData: ShareData) {
             }
             
             return {
+                gameId: shareData.data.gameId,
                 statistics: shareData.data.statistics,
                 playerCapes: capes
             };
