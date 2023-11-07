@@ -1,8 +1,9 @@
 <script lang="ts">
-    import "@fontsource/open-sans";
     import SearchResult from "$lib/components/SearchResult.svelte";
 
-    import { words } from "$lib/words";
+    import { words } from "$lib/word-list/words";
+
+    const minimalSearchQueryLength = 2;
 
     let searchQuery = "";
     $: searchedWords = searchWords(searchQuery);
@@ -10,7 +11,7 @@
     function searchWords(query: string): string[] {
         query = query.replace(/[^a-zA-Z0-9]/g, '');
         
-        if (query.length < 3) {
+        if (query.length < minimalSearchQueryLength) {
             return [];
         }
 
@@ -21,36 +22,73 @@
 </script>
 
 <style>
+    @font-face {
+        font-family: 'Minecraft';
+        font-style: normal;
+        src: url("/fonts/Minecraft.otf");
+    }
+
     :root {
-        --background: rgb(42, 42, 42);
         --primary: rgb(250, 250, 250);
     }
 
     :global(body) {
-        background-color: var(--background);
+        background-image: url("/background.png");
+        background-size: cover;
     }
 
     .content {
         display: flex;
         justify-content: center;
 
-        font-family: "Open Sans";
+        font-family: Minecraft;
         font-size: 15px;
         color: var(--primary);
     }
 
     .center {
         text-align: center;
-        width: 45vw;
+        width: 50vw;
+        height: 98vh;
+
+        overflow-y: scroll;
+
+        backdrop-filter: brightness(0.25) blur(0.3em);
+    }
+
+    @media (max-aspect-ratio: 25/16) {
+        .center {
+            width: 98vw;
+        }
     }
 
     .title {
-        font-size: 3.5em;
+        font-size: 2.5em;
     }
 
     .input {
-        text-align: center;
+        text-align: left;
         width: 50%;
+        height: 25px;
+
+        padding: 0.5em;
+
+        font-size: 25px;
+        font-family: inherit;
+
+        background-color: black;
+        color: white;
+
+        border-style: solid;
+        border-color: gray;
+    }
+
+    .input:focus {
+        border-color: white;
+    }
+
+    .info {
+        font-size: 1.25em;
     }
 </style>
 
@@ -58,10 +96,16 @@
     <div class="center">
         <h1 class="title">Search the LexiQuest dictionary</h1>
         
-        <input class="input" type="text" bind:value={searchQuery}>
+        <input class="input" type="text" maxlength="20" placeholder="Search" bind:value={searchQuery}>
 
         {#each searchedWords as word}
             <SearchResult {word}/>
+        {:else}
+            {#if searchQuery.length < minimalSearchQueryLength}
+                <p class="info">Please enter at least {minimalSearchQueryLength} characters.</p>
+            {:else}
+                <p class="info">No words found.</p>
+            {/if}
         {/each}
     </div>
 </div>

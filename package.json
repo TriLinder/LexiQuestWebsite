@@ -19,7 +19,5 @@
 		"vite": "^4.4.2"
 	},
 	"type": "module",
-	"dependencies": {
-		"@fontsource/open-sans": "^5.0.14"
-	}
+	"dependencies": {}
 }
