@@ -137,6 +137,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>Shared LexiQuest game</title>
+</svelte:head>
+
 {#if shareData}
     <div class="center">
         <div class="container">

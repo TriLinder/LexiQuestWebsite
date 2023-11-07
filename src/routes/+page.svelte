@@ -101,6 +101,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>LexiQuest dictionary</title>
+</svelte:head>
+
 <div class="content">
     <div class="center">
         <h1 class="title">Search the LexiQuest dictionary</h1>
