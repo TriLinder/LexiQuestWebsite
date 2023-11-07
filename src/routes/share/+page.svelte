@@ -1,10 +1,14 @@
 <script lang="ts">
     import { browser } from "$app/environment";
-    import logo from "$lib/assets/logo.png";
+    import { get } from "svelte/store";
+    import { analytics } from "../../stores";
 
+    import { initializeAnalytics } from '$lib/utils/analytics';
     import { parseShareString } from "$lib/share-string-parser";
+    import { prepareShareStringTelemetry } from "$lib/utils/analytics";
     import type { ShareData } from "$lib/share-string-parser";
 
+    import logo from "$lib/assets/logo.png";
     import GameBoard from "$lib/components/GameBoard.svelte";
     import PlayerLeaderboard from "$lib/components/PlayerLeaderboard.svelte";
     import GameSummaryText from "$lib/components/GameSummaryText.svelte";
@@ -12,13 +16,24 @@
 
     let shareData: ShareData;
 
-    if (browser) {
-        window.addEventListener("unhandledrejection", function(error) {
-            alert(error.reason);
-        });
-        
+    if (browser) {        
         const shareLink = document.location.hash.slice(1);
         shareData = parseShareString(shareLink);
+
+        const telemetryData = prepareShareStringTelemetry(shareData);
+        
+        if (telemetryData) {
+            initializeAnalytics();
+
+            get(analytics).sendEvent({
+                "type": "telemetry",
+                "data": {
+                    "telemetryLevel": shareData.data.configuration.telemetryLevel,
+                    "dataVersion": shareData.version,
+                    "content": telemetryData
+                }
+            });
+        }
     }
 </script>
 

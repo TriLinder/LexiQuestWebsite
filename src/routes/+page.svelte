@@ -1,4 +1,8 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+    import { browser } from "$app/environment";
+    import { initializeAnalytics } from "$lib/utils/analytics";
+
     import { words } from "$lib/word-list/words";
     import SearchResult from "$lib/components/SearchResult.svelte";
 
@@ -18,6 +22,12 @@
             word.toLowerCase().startsWith(query.toLowerCase())
         ).sort((a, b) => a.length - b.length);
     }
+
+    onMount(function() {
+        if (browser) {
+            initializeAnalytics();
+        }
+    });
 </script>
 
 <style>
