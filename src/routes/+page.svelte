@@ -1,7 +1,6 @@
 <script lang="ts">
-    import SearchResult from "$lib/components/SearchResult.svelte";
-
     import { words } from "$lib/word-list/words";
+    import SearchResult from "$lib/components/SearchResult.svelte";
 
     const minimalSearchQueryLength = 2;
 
