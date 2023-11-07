@@ -103,6 +103,7 @@
 
 <svelte:head>
     <title>LexiQuest dictionary</title>
+    <meta name="darkreader-lock">
 </svelte:head>
 
 <div class="content">

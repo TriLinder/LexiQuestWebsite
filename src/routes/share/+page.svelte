@@ -139,6 +139,7 @@
 
 <svelte:head>
     <title>Shared LexiQuest game</title>
+    <meta name="darkreader-lock">
 </svelte:head>
 
 {#if shareData}
