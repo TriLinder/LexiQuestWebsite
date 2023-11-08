@@ -109,14 +109,20 @@ export function parseVersion0ShareString(shareString: string): Version0ShareData
     const gameId = statisticsItems[2];
     
     const messageIndex = Number.parseInt(statisticsItems[12]);
-    const winnerStageFakePlayersMessage = {
-        firstMessage: ["Did you see that? They're amazing!", "I'm struggling to keep up!", "They're a LexiQuest champion in the making.",
-                        "Their word choices are incredible!", "Their strategy was flawless.", "They are on fire!",
-                        "I have to step up my game to compete with this player.", "Can you be on my team?"][messageIndex],
+    let winnerStageFakePlayersMessage;
 
-        secondMessage: ["I did! Their vocabulary is impressive!", "They're a genius, no doubt.", "They're destined for greatness.",
-                        "Agreed, they absolutely are.", "As it's always.", "What does that even mean?",
-                        "You have no chance of beating them.", "There are teams in this game?"][messageIndex]
+    if (messageIndex != -1) {
+        winnerStageFakePlayersMessage = {
+            firstMessage: ["Did you see that? They're amazing!", "I'm struggling to keep up!", "They're a LexiQuest champion in the making.",
+                            "Their word choices are incredible!", "Their strategy was flawless.", "They are on fire!",
+                            "I have to step up my game to compete with this player.", "Can you be on my team?"][messageIndex],
+
+            secondMessage: ["I did! Their vocabulary is impressive!", "They're a genius, no doubt.", "They're destined for greatness.",
+                            "Agreed, they absolutely are.", "As it's always.", "What does that even mean?",
+                            "You have no chance of beating them.", "There are teams in this game?"][messageIndex]
+        }
+    } else {
+        winnerStageFakePlayersMessage = null;
     }
 
     const parsedStatistics = {
