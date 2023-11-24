@@ -5,6 +5,7 @@
 
     import { words } from "$lib/word-list/words";
     import SearchResult from "$lib/components/SearchResult.svelte";
+    import LinkFooter from "$lib/components/LinkFooter.svelte";
 
     const minimalSearchQueryLength = 2;
 
@@ -121,5 +122,7 @@
                 <p class="info">No words found.</p>
             {/if}
         {/each}
+
+        <LinkFooter showDictionaryInformationLink/>
     </div>
 </div>

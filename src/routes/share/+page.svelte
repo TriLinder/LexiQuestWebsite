@@ -13,6 +13,7 @@
     import PlayerLeaderboard from "$lib/components/PlayerLeaderboard.svelte";
     import GameSummaryText from "$lib/components/GameSummaryText.svelte";
     import FakePlayerMessages from "$lib/components/FakePlayerMessages.svelte";
+    import LinkFooter from "$lib/components/LinkFooter.svelte";
 
     let shareData: ShareData;
 
@@ -135,6 +136,10 @@
         font-size: 1.5em;
         margin: 0;
     }
+
+    .link-footer{
+        width: 100%;
+    }
 </style>
 
 <svelte:head>
@@ -168,6 +173,10 @@
 
                 <div class="fake-player-messages">
                     <FakePlayerMessages {shareData}/>
+                </div>
+
+                <div class="link-footer">
+                    <LinkFooter/>
                 </div>
             </div>
         </div>
