@@ -123,6 +123,6 @@
             {/if}
         {/each}
 
-        <LinkFooter showDictionaryInformationLink/>
+        <LinkFooter/>
     </div>
 </div>

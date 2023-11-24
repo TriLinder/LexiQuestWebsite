@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="link-footer">
-                    <LinkFooter/>
+                    <LinkFooter showLinkToDictionaryPage/>
                 </div>
             </div>
         </div>

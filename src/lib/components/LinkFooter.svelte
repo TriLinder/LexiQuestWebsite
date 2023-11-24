@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let showDictionaryInformationLink = false;
+    export let showLinkToDictionaryPage = false;
 </script>
 
 <style>
@@ -27,10 +27,12 @@
 </style>
 
 <p class="footer">
-    {#if showDictionaryInformationLink}
+    {#if showLinkToDictionaryPage}
+        <a href="/dictionary" target="_blank" rel="noopener noreferrer">Dictionary</a>
+    {:else}
         <a href="/dictionary_readme" target="_blank" rel="noopener noreferrer">Dictionary information</a>
     {/if}
-    
+
     <a href="/fonts/Minecraft.otf_LICENSE" target="_blank" rel="noopener noreferrer">Font</a>
     <a href="https://github.com/TriLinder/LexiQuestWebsite" target="_blank" rel="noopener noreferrer">Source code</a>
 </p>
