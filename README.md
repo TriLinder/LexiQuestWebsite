@@ -1,38 +1,9 @@
-# create-svelte
+# LexiQuest website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the source code for the [LexiQuest](https://github.com/TriLinder/LexiQuest) website, hosted [here](https://lexiquest.netlify.app/dictionary).
 
-## Creating a project
+It allows players to [search through the dictionary](https://lexiquest.netlify.app/dictionary) and to [share their played games](https://lexiquest.netlify.app/share#0*1;14;1;*486701085;1717236813;40741684;1;1;1;0;0;0;0;19840;12;7;*ewogICJ0aW1lc3RhbXAiIDogMTY5OTQ2ODgwMzk4MCwKICAicHJvZmlsZUlkIiA6ICJjZjM1ZDQ0ZmZiNTU0ODM4OGUwODM2NzIwMTBiYmQxZCIsCiAgInByb2ZpbGVOYW1lIiA6ICJUcmlMaW5kZXIiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU0M2ViYTgyNjUzYjZkMmM1ZmVjMjMwMTI3NjU1MTNiMWQyYTZhNDk5OTcyYTRmNGI3ZWQ5NWIyNDRjZDMyYiIKICAgIH0KICB9Cn0=_42;*____T______________________________3_______3____________________8__T____3________3_T3__D_______8______D_____D____8___________________D______D_________3T___D_____________8_______D_________3_______________________3_________T____D________T___8_3_______3_______T______________D_____8________________________________________________8D8______________________3_____3_____welcomeD______D______________3_bDn___________T________D___jTd___D_____3__________8D__e_8_______________________score3________3_____________t________________T_________i__________D_______________v____T_b_______________3__letters_o______________________n_win___________________T__j_a_u_______________D______o_pass_________3_____3_____y_______________________8________8) through the in-game sharing feature.
 
-If you're seeing this, you've probably already done this step. Congrats!
+![A player leaderboard from a shared game](./README_IMAGES/share_leaderboard.png "A player leaderboard from a shared game")
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![A search through the dictionary](./README_IMAGES/dictionary_search.png "A search through the dictionary")
