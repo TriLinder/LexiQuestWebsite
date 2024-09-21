@@ -1,5 +1,6 @@
 <script lang="ts">
     import { browser } from "$app/environment";
+    import { onMount } from "svelte";
     import { get } from "svelte/store";
     import { analytics } from "../../stores";
 
@@ -17,25 +18,36 @@
 
     let shareData: ShareData;
 
-    if (browser) {        
-        const shareLink = document.location.hash.slice(1);
-        shareData = parseShareString(shareLink);
+    onMount(function() {
+        if (browser) {  
+            try {
+                const shareLink = document.location.hash.slice(1);
+                shareData = parseShareString(shareLink);
+            }  catch(error) {
 
-        const telemetryData = prepareShareStringTelemetry(shareData);
-        
-        if (telemetryData) {
-            initializeAnalytics();
-
-            get(analytics).sendEvent({
-                "type": "telemetry",
-                "data": {
-                    "telemetryLevel": shareData.data.configuration.telemetryLevel,
-                    "dataVersion": shareData.version,
-                    "content": telemetryData
+                if (error instanceof Error && error.message) {
+                    alert(error.message);
                 }
-            });
+
+                throw error;
+            }   
+
+            const telemetryData = prepareShareStringTelemetry(shareData);
+            
+            if (telemetryData) {
+                initializeAnalytics();
+
+                get(analytics).sendEvent({
+                    "type": "telemetry",
+                    "data": {
+                        "telemetryLevel": shareData.data.configuration.telemetryLevel,
+                        "dataVersion": shareData.version,
+                        "content": telemetryData
+                    }
+                });
+            }
         }
-    }
+    });
 </script>
 
 <style>
